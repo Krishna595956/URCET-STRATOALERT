@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Dashboard - Online Complaint Tracking System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .navbar {
+            background-color: #222 !important;
+        }
+
+        .navbar-brand {
+            color: #fff !important;
+            font-weight: 600;
+        }
+
+        .nav-link {
+            color: #fff !important;
+            margin-right: 15px;
+        }
+
+        .nav-link:hover {
+            color: #74ebd5 !important;
+        }
+
+        .btn-success {
+            background-color: #4CAF50;
+            border-radius: 50px;
+            padding: 10px 20px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-success:hover {
+            background-color: #45a049;
+        }
+
+        h1 {
+            color: #fff;
+            text-align: center;
+            margin-top: 30px;
+            font-weight: 600;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card h2 {
+            color: #333;
+            font-weight: 600;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #666;
+        }
+
+        .icon {
+            font-size: 25px;
+            color: #74ebd5;
+            margin-right: 10px;
+        }
+
+        .row {
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .card h2 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">ComplaintTracker</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/addtask">Add task</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/viewtasks">My tasks</a>
+                    </li>
+                </ul>
+                <a href="/usertype"><button class="btn btn-success">Login</button></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Staff Dashboard</h1>
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2><span class="icon">📄</span>Convenience and Accessibility</h2>
+                        <p>Submit complaints from anywhere, anytime. No need for physical visits or paperwork.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h2><span class="icon">📊</span>Efficiency and Transparency</h2>
+                        <p>Track complaint status in real-time. Access complaint history and updates.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2><span class="icon">⏳</span>Time and Cost Savings</h2>
+                        <p>Reduce response times and resolution periods. Minimize administrative overhead.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h2><span class="icon">📞</span>Improved Customer Satisfaction</h2>
+                        <p>Enhanced communication and problem-solving. Increased trust and loyalty.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

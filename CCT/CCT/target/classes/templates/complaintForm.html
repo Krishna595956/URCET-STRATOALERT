@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Complaint Tracking System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navbar {
+            background-color: #333 !important;
+        }
+
+        .navbar-brand {
+            font-weight: 600;
+            color: #fff !important;
+        }
+
+        .nav-link {
+            color: #fff !important;
+        }
+
+        .display-6 {
+            color: #fff;
+            margin-top: 20px;
+            font-weight: 700;
+            font-size: 2.5rem;
+        }
+
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        .form-label {
+            font-weight: 500;
+        }
+
+        .form-control,
+        .form-select {
+            border-radius: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+            border-color: #007bff;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            padding: 12px 20px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-radius: 10px;
+            transition: background 0.3s ease-in-out, transform 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        input[type="file"] {
+            border: none;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">ComplaintTracker</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <center>
+        <div class="display-6">File a Complaint</div>
+		<div style="color: red;"><span th:text="${status}"></span></div>
+    </center>
+    
+    <div class="container">
+        <form action="/submitcomplaint" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="category" class="form-label">Category of Complaint:</label>
+                <select class="form-select" id="category" name="category">
+                    <option value="">Select Category</option>
+                    <option value="academic">Academic Issues</option>
+                    <option value="faculty">Faculty Behavior</option>
+                    <option value="infrastructure">Infrastructure Problems</option>
+                    <option value="administrative">Administrative Concerns</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description of Complaint:</label>
+                <textarea class="form-control" id="description" rows="5" name="description"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="evidence" class="form-label">Evidence (Optional):</label>
+                <input type="file" class="form-control" id="evidence" name="evidence">
+            </div>
+            <div class="mb-3">
+                <label for="desiredResolution" class="form-label">Desired Resolution:</label>
+                <textarea class="form-control" id="desiredResolution" rows="3" name="desiredResolution"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="dateOfIncident" class="form-label">Date of Incident:</label>
+                <input type="date" class="form-control" id="dateOfIncident" name="dateOfIncident">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Complaint</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

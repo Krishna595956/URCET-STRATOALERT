@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Complaint Tracking System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Complaints</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                    <th>Evidence</th>
+                    <th>Desired Resolution</th>
+                    <th>Date of Incident</th>
+                    <th>Given By</th>
+					<th>Status</th>
+					<th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="complaint : ${complaints}">
+                    <td th:text="${complaint.id}"></td>
+                    <td th:text="${complaint.category}"></td>
+                    <td th:text="${complaint.description}"></td>
+                    <td>
+                        <button th:if="${complaint.evidenceFileName != null}"
+                                class="btn btn-primary"
+                                onclick="downloadFile('@{/../uploads/${complaint.evidence_file_name}}')">
+                            Download
+                        </button>
+                        <span th:unless="${complaint.evidenceFileName != null}">No evidence available</span>
+                    </td>
+                    <td th:text="${complaint.desiredResolution}"></td>
+                    <td th:text="${complaint.dateOfIncident}"></td>
+                    <td th:text="${complaint.givenBy}"></td>
+					<td th:text="${complaint.status}"></td>
+					<td><a href="/updateStatus"><button class="btn btn-success">update</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <script>
+        function downloadFile(url) {
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>
